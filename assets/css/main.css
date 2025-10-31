@@ -2640,6 +2640,7 @@ input, select, textarea {
 					background-size: 100% 100%;
 					opacity: 0.25;
 					z-index: 2;
+ 					display: none;
 				}
 
 			.tiles article > a {
@@ -2706,11 +2707,11 @@ input, select, textarea {
 					}
 
 			.tiles article.style1 > .image:before {
-				background-color: #f2849e;
+				background-color: #81b9f4;
 			}
 
 			.tiles article.style2 > .image:before {
-				background-color: #7ecaf6;
+				background-color: #fcc79b;
 			}
 
 			.tiles article.style3 > .image:before {
@@ -2718,15 +2719,15 @@ input, select, textarea {
 			}
 
 			.tiles article.style4 > .image:before {
-				background-color: #c75b9b;
+				background-color: #cde3fb;
 			}
 
 			.tiles article.style5 > .image:before {
-				background-color: #ae85ca;
+				background-color: #fee6d3;
 			}
 
 			.tiles article.style6 > .image:before {
-				background-color: #8499e7;
+				background-color: #d8eddd;
 			}
 
 			body:not(.is-touch) .tiles article:hover > .image {
@@ -2855,8 +2856,8 @@ input, select, textarea {
 
 				#header .logo .symbol img {
 					display: block;
-					width: 2em;
-					height: 2em;
+					width: 100px;
+					height: 100px;
 				}
 
 		#header nav {
