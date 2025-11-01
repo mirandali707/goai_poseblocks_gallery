@@ -178,4 +178,22 @@
             </footer>
         </div>
         
+        <script>
+            // Google Sheet import and console logging
+            // NOTE: Sheet permissions must be set to "Anyone with the link can edit" in order for this to work!
+            const SHEET_URL = "https://opensheet.elk.sh/1nyUkE4ZwKG3wHfStOEMgwGjhwRg4tmdCSEBxtBk4xj0/Form%20Responses%201";
+
+            fetch(SHEET_URL)
+                .then(res => res.json())
+                .then(data => {
+                    console.log('Google Sheet Data:', data);
+                    console.log('Number of entries:', data.length);
+                    if (data.length > 0) {
+                        console.log('Sample entry:', data[0]);
+                    }
+                })
+                .catch(err => {
+                    console.error('Error loading Google Sheet data:', err);
+                });
+        </script>
     </body></html>
