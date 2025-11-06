@@ -142,10 +142,8 @@
             const projectLink = project.projectLink || "";
             const randomColor = getRandomColor();
             
-            // Format the playground URL with cors-anywhere proxy
-            const playgroundUrl = projectLink 
-                ? `https://playground.raise.mit.edu/main/?project=https://cors-anywhere.herokuapp.com/${projectLink}`
-                : "#";
+            // Link directly to Google Drive file
+            const downloadUrl = projectLink || "#";
 
             // Create card HTML with colored background instead of image
             const cardHTML = `
@@ -155,9 +153,9 @@
                         <p class="text-white/90 text-lg">${studentName}</p>
                     </div>
                     <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm p-4 text-center">
-                        <a class="bg-primary text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:bg-[#0363d4] transition-all duration-300 transform hover:scale-105 flex items-center gap-2" href="${playgroundUrl}" target="_blank">
-                            <span class="material-icons-outlined text-lg">play_arrow</span>
-                            Try me!
+                        <a class="bg-primary text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:bg-[#0363d4] transition-all duration-300 transform hover:scale-105 flex items-center gap-2" href="${downloadUrl}" target="_blank">
+                            <span class="material-icons-outlined text-lg">download</span>
+                            Download project
                         </a>
                     </div>
                 </div>
