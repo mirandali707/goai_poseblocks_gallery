@@ -97,13 +97,7 @@
             </section>
             <section class="py-16 md:py-24" id="projects">
                 <div class="container mx-auto px-6">
-                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-slate-900 dark:text-white">Explore Projects</h2>
-                    <div class="text-center mb-12">
-                        <a class="inline-flex items-center gap-2 bg-primary text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-[#0363d4] transition-all duration-300 transform hover:scale-105" href="https://forms.gle/HAr5AmFzfQDgRuwv7" target="_blank">
-                            <span class="material-icons-outlined text-lg">add_circle_outline</span>
-                            Add yours!
-                        </a>
-                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900 dark:text-white">Example Projects</h2>
                     <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                         <div class="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
                             <img alt="Dancing Stick Figure GIF" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" src="https://dancingwithai.media.mit.edu/projects/hand-spray-paint.gif"/>
@@ -225,10 +219,35 @@
                                 </a>
                             </div>
                         </div>
-                            
-                        </div>
                     </div>
                 </section>
+            <section class="py-16 md:py-24 bg-slate-50 dark:bg-slate-900/30" id="student-projects">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-slate-900 dark:text-white">Student Projects</h2>
+                    <div class="text-center mb-12">
+                        <a class="inline-flex items-center gap-2 bg-primary text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-[#0363d4] transition-all duration-300 transform hover:scale-105" href="https://forms.gle/HAr5AmFzfQDgRuwv7" target="_blank">
+                            <span class="material-icons-outlined text-lg">add_circle_outline</span>
+                            Add yours!
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+                        <a href="lessons-5-6.html" class="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                            <div class="bg-gradient-to-br from-primary to-[#0363d4] p-12 text-center min-h-[300px] flex flex-col items-center justify-center">
+                                <span class="material-icons-outlined text-6xl text-white mb-4">school</span>
+                                <h3 class="text-3xl font-bold text-white mb-2">Lessons 5-6</h3>
+                                <!-- <p class="text-white/90 text-lg">View student projects from Lessons 5-6</p> -->
+                            </div>
+                        </a>
+                        <a href="lessons-10-12.html" class="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                            <div class="bg-gradient-to-br from-[#0363d4] to-primary p-12 text-center min-h-[300px] flex flex-col items-center justify-center">
+                                <span class="material-icons-outlined text-6xl text-white mb-4">school</span>
+                                <h3 class="text-3xl font-bold text-white mb-2">Lessons 10-12</h3>
+                                <!-- <p class="text-white/90 text-lg">View student projects from Lessons 10-12</p> -->
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
             </main>
             <footer class="bg-slate-100 dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-800">
                 <div class="container mx-auto px-6 py-8">
@@ -240,80 +259,7 @@
         </div>
         
         <script>
-            // Google Sheet import and card generation
-            // NOTE: Sheet permissions must be set to "Anyone with the link can edit" in order for this to work!
-            const SHEET_URL = "https://opensheet.elk.sh/1nyUkE4ZwKG3wHfStOEMgwGjhwRg4tmdCSEBxtBk4xj0/Form%20Responses%201";
-            const projectsGrid = document.getElementById('projects-grid');
-
-            // Placeholder color array - replace with your colors later
-            const cardColors = [
-                '#81b9f4',
-                '#fcc79b',
-                '#82ca9c',
-                '#cde3fb',
-                '#fee6d3',
-                '#d8eddd',
-            ];
-
-            // Function to get a random color from the array
-            function getRandomColor() {
-                return cardColors[Math.floor(Math.random() * cardColors.length)];
-            }
-
-            // Function to create a project card
-            function createProjectCard(project) {
-                const title = project["What is your project title?"] || "Untitled Project";
-                const studentName = project["What's your name?"] || "Student";
-                const projectLink = project.projectLink || "";
-                const randomColor = getRandomColor();
-                
-                // Format the playground URL with cors-anywhere proxy
-                const playgroundUrl = projectLink 
-                    ? `https://playground.raise.mit.edu/main/?project=https://cors-anywhere.herokuapp.com/${projectLink}`
-                    : "#";
-
-                // Create card HTML with colored background instead of image
-                const cardHTML = `
-                    <div class="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" style="min-height: 300px;">
-                        <div class="w-full h-full transition-transform duration-300 group-hover:scale-110 flex flex-col items-center justify-center p-6 text-center" style="background-color: ${randomColor}; min-height: 300px;">
-                            <h3 class="text-2xl font-bold text-white mb-2">${title}</h3>
-                            <p class="text-white/90 text-lg">${studentName}</p>
-                        </div>
-                        <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm p-4 text-center">
-                            <a class="bg-primary text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:bg-[#0363d4] transition-all duration-300 transform hover:scale-105 flex items-center gap-2" href="${playgroundUrl}" target="_blank">
-                                <span class="material-icons-outlined text-lg">play_arrow</span>
-                                Try me!
-                            </a>
-                        </div>
-                    </div>
-                `;
-
-                return cardHTML;
-            }
-
-            // Fetch Google Sheets data and generate cards
-            fetch(SHEET_URL)
-                .then(res => res.json())
-                .then(data => {
-                    console.log('Google Sheet Data:', data);
-                    console.log('Number of entries:', data.length);
-                    if (data.length > 0) {
-                        console.log('Sample entry:', data[0]);
-                        
-                        // Generate cards for each project
-                        data.forEach(project => {
-                            // Only create card if we have the necessary data (title and project link)
-                            if (project["What is your project title?"] && project.projectLink) {
-                                const cardHTML = createProjectCard(project);
-                                const tempDiv = document.createElement('div');
-                                tempDiv.innerHTML = cardHTML.trim();
-                                projectsGrid.appendChild(tempDiv.firstElementChild);
-                            }
-                        });
-                    }
-                })
-                .catch(err => {
-                    console.error('Error loading Google Sheet data:', err);
-                });
+            // Student projects are now displayed on separate lesson-specific pages
+            // This page only shows example projects
         </script>
     </body></html>
