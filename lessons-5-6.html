@@ -138,7 +138,8 @@
         // Function to create a project card
         function createProjectCard(project) {
             const title = project["What is your project title?"] || "Untitled Project";
-            const studentName = project["What's your name?"] || "Student";
+            const studentName = project["What's your name / team name?"] || "Student";
+            const description = project["Please provide a 1-sentence description of your project."] || "";
             const projectLink = project.projectLink || "";
             console.log(projectLink);
             const randomColor = getRandomColor();
@@ -152,7 +153,8 @@
                 <div class="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" style="min-height: 300px;">
                     <div class="w-full h-full transition-transform duration-300 group-hover:scale-110 flex flex-col items-center justify-center p-6 text-center" style="background-color: ${randomColor}; min-height: 300px;">
                         <h3 class="text-2xl font-bold text-white mb-2">${title}</h3>
-                        <p class="text-white/90 text-lg">${studentName}</p>
+                        <p class="text-white/90 text-lg mb-2">${studentName}</p>
+                        ${description ? `<p class="text-white/80 text-sm mt-2 px-2">${description}</p>` : ''}
                     </div>
                     <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm p-4 text-center">
                         <a class="bg-primary text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:bg-[#0363d4] transition-all duration-300 transform hover:scale-105 flex items-center gap-2" href="${downloadUrl}" target="_blank">
